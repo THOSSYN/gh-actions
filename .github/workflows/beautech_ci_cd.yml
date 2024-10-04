@@ -26,5 +26,5 @@ jobs:
       - name: "Build code"
         run: |
           # cd beautechlink  Ensure this folder exists
-          npm ci
+          npm install
           npm run build
