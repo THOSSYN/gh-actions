@@ -8,14 +8,11 @@
     <version>1.0-SNAPSHOT</version>
 
     <build>
-        <pluginGroups>
-            <pluginGroup>org.owasp</pluginGroup> <!-- Add the OWASP plugin group -->
-        </pluginGroups>
         <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>dependency-check-maven</artifactId>
-                <version>6.5.0</version> <!-- Use a stable version -->
+                <version>6.5.0</version> <!-- Updated to a widely used version -->
             </plugin>
         </plugins>
     </build>
