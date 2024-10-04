@@ -18,6 +18,6 @@ jobs:
         run: ls -la  # List contents of the current directory
       - name: "Build code"
         run: |
-          # cd beautechlink
+          cd beautechlink
           npm ci
           npm run build
