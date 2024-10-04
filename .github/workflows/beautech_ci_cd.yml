@@ -14,6 +14,8 @@ jobs:
       - uses: actions/checkout@v2
         name: checkout-code-from-repo
 
+      - name: Prints Working directory
+        run: pwd
       - name: List directory contents for debugging
         run: ls -la
 
@@ -23,7 +25,6 @@ jobs:
     steps:
       - name: "Build code"
         run: |
-          pwd
-          cd beautechlink  # Ensure this folder exists
+          # cd beautechlink  Ensure this folder exists
           npm ci
           npm run build
