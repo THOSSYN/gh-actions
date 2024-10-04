@@ -28,10 +28,13 @@ jobs:
     needs: build-code  # Ensure this runs after the build-code job
     steps:
       - uses: actions/checkout@v2
+      - name: "Check current directory for depCheck"
+        run: pwd  # Check where we are in depCheck
+      - name: "List contents of current directory for depCheck"
+        run: ls -la  # List contents of the current directory in depCheck
       - name: Set up JDK 1.8
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - uses: eskatos/gradle-command-action@v1
-        with:
-          arguments: dependencyCheckAnalyze
+      - name: "Run Dependency Check"
+        run: mvn dependency-check:check  # Run your desired Maven command here
