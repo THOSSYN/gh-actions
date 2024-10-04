@@ -1,0 +1,27 @@
+name: github action practice
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch: {}
+
+jobs:
+  hello-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: hello-world
+        run: echo "Hello World"
+        shell: bash
+
+  goodbye-world-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: goodbye-world
+        run: echo "Goodbye World"
+        shell: bash
+
