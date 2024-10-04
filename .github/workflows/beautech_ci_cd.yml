@@ -30,4 +30,4 @@ jobs:
       - name: "Run Dependency Check"
         run: |
           cd beautechlink  # Make sure you navigate to the correct directory
-          mvn dependency-check:check
+          mvn --settings ../.mvn/settings.xml clean install
