@@ -21,7 +21,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: "Build code"
-        working-directory: ./beautechlink
         run: |
           npm install
           npm run build
