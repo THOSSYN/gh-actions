@@ -23,6 +23,7 @@ jobs:
     steps:
       - name: "Build code"
         run: |
+          pwd
           cd beautechlink  # Ensure this folder exists
           npm ci
           npm run build
