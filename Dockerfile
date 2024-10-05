@@ -1,21 +1,20 @@
 FROM node:18-alpine
 
-# Set the working directory to /app inside the container
-# WORKDIR /app
+# Copy the entire beautechlink folder to /app/beautechlink
+WORKDIR /app
 
-# Copy only the package.json and package-lock.json from the beautechlink folder
-COPY beautechlink/package*.json ./app/
+COPY beautechlink/ ./beautechlink/
 
-# Install dependencies
+# Change the working directory to /app/beautechlink
+WORKDIR /app/beautechlink
+
+# Install dependencies inside the beautechlink folder
 RUN npm install
 
-# Copy the rest of the application files from the beautechlink folder
-COPY beautechlink/ ./app/
-
-# Build the app
+# Build the React app
 RUN npm run build
 
-# Expose a port (if needed for running the app)
+# Expose port 3000 (React's default port)
 EXPOSE 3000
 
 # Start the application
