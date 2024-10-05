@@ -1,16 +1,16 @@
 FROM node:18-alpine
 
 # Set the working directory to /app inside the container
-WORKDIR /app
+# WORKDIR /app
 
 # Copy only the package.json and package-lock.json from the beautechlink folder
-COPY beautechlink/package*.json ./
+COPY beautechlink/package*.json ./app/
 
 # Install dependencies
 RUN npm install
 
 # Copy the rest of the application files from the beautechlink folder
-COPY beautechlink/ ./
+COPY beautechlink/ ./app/
 
 # Build the app
 RUN npm run build
