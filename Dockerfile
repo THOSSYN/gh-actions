@@ -1,13 +1,22 @@
-# Stage 1: Build React App
-FROM node:18-alpine as build
+FROM node:18-alpine
 
+# Set the working directory to /app inside the container
 WORKDIR /app
-COPY . .
+
+# Copy only the package.json and package-lock.json from the beautechlink folder
+COPY beautechlink/package*.json ./
+
+# Install dependencies
 RUN npm install
+
+# Copy the rest of the application files from the beautechlink folder
+COPY beautechlink/ ./
+
+# Build the app
 RUN npm run build
 
-# Stage 2: Serve the app with NGINX
-FROM nginx:alpine
-COPY --from=build /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Expose a port (if needed for running the app)
+EXPOSE 3000
+
+# Start the application
+CMD ["npm", "start"]
